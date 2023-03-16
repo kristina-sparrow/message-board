@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import { FormikHelpers } from "formik/dist/types";
-import { MessageProps, createMessage } from "../services/message";
+import { MessageProps, createNewMessage } from "../services/message";
 import Button from "./Button";
 import Emoji from "./Emoji";
 import Input from "./Input";
@@ -27,7 +27,7 @@ export default function SendMessage({ setMessages }: SendMessageProps) {
     values: FormValues,
     actions: FormikHelpers<FormValues>
   ) => {
-    await createMessage(values)
+    await createNewMessage(values)
       .then((res) => {
         console.log(res);
         setMessages((m) => [...m!, res.messageDB]);

@@ -7,7 +7,7 @@ export type MessageProps = {
   added: string;
 };
 
-export const getMessage = async (since?: number) => {
+export const getAllMessages = async (since?: number) => {
   console.log(since);
 
   const res = await fetch(
@@ -20,7 +20,7 @@ export const getMessage = async (since?: number) => {
   return [...data.messages] as MessageProps[];
 };
 
-export const createMessage = async (
+export const createNewMessage = async (
   data: Omit<MessageProps, "_id" | "added">
 ) => {
   try {

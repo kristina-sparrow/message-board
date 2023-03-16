@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Card from "./Card";
 import MessageBoard from "./MessageBoard";
 import SendMessage from "./SendMessage";
-import { MessageProps, getMessage } from "../services/message";
+import { MessageProps, getAllMessages } from "../services/message";
 import useInfiniteScroll from "../hooks/useInfiniteScroll";
 
 export default function Main() {
@@ -15,7 +15,7 @@ export default function Main() {
     try {
       setLoading(true);
       if (!last) {
-        getMessage(skip).then((data) => {
+        getAllMessages(skip).then((data) => {
           setMessages((prev) => [...data.reverse(), ...prev]);
           if (data.length < 10 && data.length > 0) {
             setLast(true);
