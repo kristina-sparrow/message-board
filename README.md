@@ -4,6 +4,6 @@ A full-stack web application that allows users to leave messages on a public boa
 
 ## Tech Stack
 
-**Client:** React, Typescript, ChakraUI
+**Client:** React, Typescript, SASS
 
 **Server:** Node, Express, MongoDB
