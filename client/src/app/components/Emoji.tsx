@@ -16,7 +16,7 @@ export default function Emoji({ setEmoji }: EmojiProps) {
   useOnClickOutside(emojiPickerRef, () => handlePicker());
 
   return (
-    <div className="emoji">
+    <div className="emoji-container">
       {isPickerVisible && (
         <div ref={emojiPickerRef} className="picker">
           <EmojiPicker

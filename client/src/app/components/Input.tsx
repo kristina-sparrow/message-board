@@ -15,7 +15,7 @@ export default function Input({
   className = "",
 }: InputProps) {
   return (
-    <div className={className}>
+    <div className={`input-group ${className}`}>
       <Field
         className={`input ${className}`}
         id={id}
