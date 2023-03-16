@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const messageSchema = new Schema({
+const MessageSchema = new Schema({
   username: {
     type: String,
     required: [true, "Username is required"],
@@ -16,9 +16,9 @@ const messageSchema = new Schema({
   },
 });
 
-messageSchema.methods.toJSON = function () {
+MessageSchema.methods.toJSON = function () {
   const { __v, state, ...data } = this.toObject();
   return data;
 };
 
-module.exports = mongoose.model("Message", messageSchema);
+module.exports = mongoose.model("Message", MessageSchema);

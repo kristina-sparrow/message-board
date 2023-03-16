@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-const Message = require("../models/messageModel");
+const Message = require("../models/Message");
 
 const getAllMessages = async (req: Request, res: Response) => {
   const { limit = 10, since = 0 } = req.query;
