@@ -1,18 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import getRandomColor from "../utils/getRandomColor";
 import Loading from "./Loading";
+import { MessageProps } from "../services/message";
 
 type BoardProps = {
   messages: MessageProps[] | undefined;
   last: boolean;
   loadMoreRef: React.RefObject<HTMLDivElement>;
-};
-
-type MessageProps = {
-  _id: string;
-  username: string;
-  text: string;
-  added: string;
 };
 
 export default function Board({ messages, loadMoreRef, last }: BoardProps) {
