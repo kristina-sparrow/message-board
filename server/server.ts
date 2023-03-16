@@ -1,6 +1,7 @@
 require("dotenv").config();
 import { Request, Response } from "express";
 const express = require("express");
+const routes = require("./routes/routes");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const connectDB = require("./database/db");
@@ -15,6 +16,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // routes
+app.use("/", routes);
+
 app.all("*", (req: Request, res: Response) => {
   res.sendStatus(404);
 });
