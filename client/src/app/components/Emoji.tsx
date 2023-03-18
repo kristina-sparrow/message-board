@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import EmojiPicker from "emoji-picker-react";
-import { BsEmojiSmile } from "react-icons/bs";
+import { FaSmile } from "react-icons/fa";
 import useOnClickOutside from "../hooks/useOnClickOutside";
+import Button from "./Button";
 
 type EmojiProps = {
   setEmoji: React.Dispatch<React.SetStateAction<any>>;
@@ -27,9 +28,9 @@ export default function Emoji({ setEmoji }: EmojiProps) {
           />
         </div>
       )}
-      <button type="button" onClick={() => handlePicker()}>
-        <BsEmojiSmile />
-      </button>
+      <Button type="button" onClick={() => handlePicker()}>
+        <FaSmile />
+      </Button>
     </div>
   );
 }

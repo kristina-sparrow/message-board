@@ -5,6 +5,7 @@ import { MessageProps, createNewMessage } from "../services/message";
 import Button from "./Button";
 import Emoji from "./Emoji";
 import Input from "./Input";
+import { BsSendFill } from "react-icons/bs";
 
 type MessageFormProps = {
   username: string;
@@ -67,7 +68,7 @@ export default function SendMessage({ setMessages }: SendMessageProps) {
           return (
             <Form>
               <Emoji setEmoji={setEmoji} />
-              <div className="inputs">
+              <div className="input-container">
                 <Input
                   id="username"
                   name="username"
@@ -82,7 +83,9 @@ export default function SendMessage({ setMessages }: SendMessageProps) {
                   className={errors.text ? "error" : ""}
                 />
               </div>
-              <Button type="submit" disabled={isSubmitting} />
+              <Button type="submit" disabled={isSubmitting}>
+                <BsSendFill />
+              </Button>
             </Form>
           );
         }}

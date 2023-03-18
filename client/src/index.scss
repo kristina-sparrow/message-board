@@ -88,6 +88,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
+  .header__title {
+    font-size: 1.6rem;
+  }
 }
 
 /* MAIN */
@@ -98,7 +102,7 @@ button {
 /* MESSAGE BOARD */
 .card {
   width: 95vw;
-  height: 90vh;
+  height: 85vh;
   position: relative;
   margin: 0 auto;
   background-color: $clr-light;
@@ -106,14 +110,19 @@ button {
   z-index: 1;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  .tools {
+  .card__header {
     position: absolute;
     border-radius: 8px 8px 0 0;
     background: #2f283b;
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 9px;
+    padding: 5px;
+    .title {
+      color: $clr-light;
+      flex: 1;
+      padding-left: 20px;
+    }
     .circle {
       padding: 0 4px;
     }
@@ -144,7 +153,7 @@ button {
     justify-content: space-between;
   }
   @media (min-width: 900px) {
-    width: 50vw;
+    width: 60vw;
   }
 }
 
@@ -245,7 +254,6 @@ button {
 
 /* MESSAGE FORM */
 .form-container {
-  padding: 1rem 0;
   form {
     display: flex;
   }
@@ -305,12 +313,13 @@ button {
 }
 
 /* MESSAGE INPUT BUTTONS */
-button {
+.btn {
   background: none;
   border: none;
   padding: 20px 20px;
   border-radius: 0 8px 8px 0;
   background-color: #f8f8f8;
+  font-size: 1.7rem;
   cursor: pointer;
   transition: 0.5s all ease-out;
   svg {
@@ -333,9 +342,10 @@ button {
   }
 }
 
+/* EMOJI PICKER */
 .emoji-container {
   position: relative;
-  width: 45px;
+  width: 60px;
   .picker {
     z-index: 11;
     bottom: 1rem;
@@ -363,7 +373,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 15px;
+  padding: 20px;
   svg {
     color: $clr-grayD;
     font-size: 1.1rem;

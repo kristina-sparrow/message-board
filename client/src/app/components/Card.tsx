@@ -17,6 +17,7 @@ export default function Card({ children }: CardProps) {
         <div className="circle">
           <span className="green box"></span>
         </div>
+        <p className="title">Public Chat</p>
       </div>
       <div className="card__content">{children}</div>
     </div>
