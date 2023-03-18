@@ -66,11 +66,11 @@ button {
   cursor: pointer;
 }
 
-&::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
-&::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #d2d2e0;
   &:active {
     background: $clr-dark;
@@ -79,7 +79,7 @@ button {
     background: $clr-dark;
   }
 }
-&::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #80808014;
 }
 

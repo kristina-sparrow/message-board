@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 export type MessageProps = {
   _id: string;
   username: string;

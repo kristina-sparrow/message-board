@@ -1,5 +1,5 @@
-require("dotenv").config();
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -19,6 +19,11 @@ module.exports = {
     },
   },
   resolve: {
+    fallback: {
+      fs: false,
+      path: false,
+      os: false,
+    },
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   module: {
@@ -51,7 +56,7 @@ module.exports = {
     static: ["src"],
     hot: true,
     historyApiFallback: true,
-    port: process.env.PORT,
+    port: 3000,
   },
   optimization: {
     minimizer: [new CssMinimizerPlugin()],
@@ -63,6 +68,10 @@ module.exports = {
       favicon: "src/assets/favicon.png",
     }),
     new MiniCssExtractPlugin(),
+    new Dotenv({
+      path: "./.env",
+      safe: true,
+    }),
   ],
   devtool: "eval-source-map",
 };
