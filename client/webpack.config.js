@@ -56,7 +56,7 @@ module.exports = {
     static: ["src"],
     hot: true,
     historyApiFallback: true,
-    port: 3000,
+    port: 8080,
   },
   optimization: {
     minimizer: [new CssMinimizerPlugin()],
