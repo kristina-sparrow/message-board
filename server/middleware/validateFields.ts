@@ -10,4 +10,4 @@ const validateFields = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-module.exports = { validateFields };
+export default validateFields;

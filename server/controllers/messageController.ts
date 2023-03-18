@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-const Message = require("../models/Message");
+import Message from "../models/Message";
 
-const getAllMessages = async (req: Request, res: Response) => {
+export const getAllMessages = async (req: Request, res: Response) => {
   const { limit = 10, since = 0 } = req.query;
 
   const allMessages = await Message.find()
@@ -12,7 +12,7 @@ const getAllMessages = async (req: Request, res: Response) => {
   res.status(200).json({ allMessages });
 };
 
-const createNewMessage = async (req: Request, res: Response) => {
+export const createNewMessage = async (req: Request, res: Response) => {
   const { username, text } = req.body;
 
   try {
@@ -23,9 +23,4 @@ const createNewMessage = async (req: Request, res: Response) => {
     res.sendStatus(500);
     console.error(err);
   }
-};
-
-module.exports = {
-  getAllMessages,
-  createNewMessage,
 };

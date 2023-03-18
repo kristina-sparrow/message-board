@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+import { Schema, model } from "mongoose";
 
 const MessageSchema = new Schema({
   username: {
@@ -21,4 +20,4 @@ MessageSchema.methods.toJSON = function () {
   return data;
 };
 
-module.exports = mongoose.model("Message", MessageSchema);
+export default model("Message", MessageSchema);

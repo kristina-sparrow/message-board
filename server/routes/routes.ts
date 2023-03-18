@@ -1,12 +1,12 @@
-const express = require("express");
-const validateFields = require("../middleware/validateFields");
+import { Router } from "express";
 import { check } from "express-validator";
-const {
+import validateFields from "../middleware/validateFields";
+import {
   getAllMessages,
   createNewMessage,
-} = require("../controllers/messageController");
+} from "../controllers/messageController";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", getAllMessages);
 
@@ -20,4 +20,4 @@ router.post(
   createNewMessage
 );
 
-module.exports = router;
+export default router;

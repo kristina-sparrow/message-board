@@ -1,12 +1,13 @@
-require("dotenv").config();
-import { Request, Response } from "express";
-const express = require("express");
-const routes = require("./routes/routes");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const connectDB = require("./database/db");
-const app = express();
+import dotenv from "dotenv";
+import express, { Request, Response, NextFunction } from "express";
+import mongoose from "mongoose";
+import connectDB from "./database/db";
+import cors from "cors";
+import routes from "./routes/routes";
 
+const app: express.Express = express();
+
+dotenv.config();
 const PORT = process.env.PORT || 3000;
 connectDB();
 
@@ -18,7 +19,7 @@ app.use(express.json());
 // routes
 app.use("/", routes);
 
-app.all("*", (req: Request, res: Response) => {
+app.all("*", (req: Request, res: Response, next: NextFunction) => {
   res.sendStatus(404);
 });
 
