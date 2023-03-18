@@ -69,7 +69,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
     new Dotenv({
-      path: "./.env",
+      path: path.resolve(__dirname, "./.env"),
       safe: true,
     }),
   ],
