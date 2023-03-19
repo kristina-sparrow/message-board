@@ -5,7 +5,7 @@ export type MessageProps = {
   added: string;
 };
 
-export const getAllMessages = async (since?: number) => {
+export const getMessages = async (since: number) => {
   console.log(since);
 
   const res = await fetch(
@@ -15,7 +15,7 @@ export const getAllMessages = async (since?: number) => {
   );
   const data = await res.json();
 
-  return [...data.messages] as MessageProps[];
+  return [...data.allMessages.reverse()] as MessageProps[];
 };
 
 export const createNewMessage = async (

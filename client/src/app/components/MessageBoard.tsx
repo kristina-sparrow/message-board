@@ -3,13 +3,17 @@ import getRandomColor from "../utils/getRandomColor";
 import Loading from "./Loading";
 import { MessageProps } from "../services/message";
 
-type BoardProps = {
+type MessageBoardProps = {
   messages: MessageProps[] | undefined;
   last: boolean;
   loadMoreRef: React.RefObject<HTMLDivElement>;
 };
 
-export default function Board({ messages, loadMoreRef, last }: BoardProps) {
+export default function MessageBoard({
+  messages,
+  loadMoreRef,
+  last,
+}: MessageBoardProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

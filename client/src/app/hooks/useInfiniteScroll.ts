@@ -21,6 +21,10 @@ export default function useInfiniteScroll() {
     const observer = new IntersectionObserver(handleObserver, option);
 
     if (loadMoreRef.current) observer.observe(loadMoreRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
   }, [handleObserver]);
 
   return { loadMoreRef, skip };

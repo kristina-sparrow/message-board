@@ -5,7 +5,7 @@ export const getAllMessages = async (req: Request, res: Response) => {
   const { limit = 10, since = 0 } = req.query;
 
   const allMessages = await Message.find()
-    .sort({ $natural: -1 })
+    .sort({ added: -1 })
     .skip(Number(since))
     .limit(Number(limit));
 
@@ -17,8 +17,12 @@ export const createNewMessage = async (req: Request, res: Response) => {
 
   try {
     const newMessage = { username, text };
-    await Message.create(newMessage);
-    res.status(201).json(newMessage);
+    const messageDB = new Message(newMessage);
+    await messageDB.save();
+    res.status(201).json({
+      msg: "Created new message",
+      messageDB,
+    });
   } catch (err) {
     res.sendStatus(500);
     console.error(err);
