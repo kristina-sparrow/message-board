@@ -21,6 +21,13 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// routes
+app.use("/api", routes);
+
+app.all("*", (req: Request, res: Response, next: NextFunction) => {
+  res.sendStatus(404);
+});
+
 // deployment
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../../client/public")));
@@ -29,13 +36,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "../../client/public/index.html"));
   });
 }
-
-// routes
-app.use("/api", routes);
-
-app.all("*", (req: Request, res: Response, next: NextFunction) => {
-  res.sendStatus(404);
-});
 
 // listen
 mongoose.connection.once("open", () => {
