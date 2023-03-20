@@ -174,14 +174,11 @@ button {
     padding: 0.5rem 1rem;
     overflow-y: hidden;
   }
-  h3 {
-    padding-bottom: 0.5rem;
-  }
   .message {
     color: #363f4d;
-    padding: 15px;
+    padding: 7px 15px;
     border-radius: 7px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     width: fit-content;
     max-width: 100%;
     position: relative;
@@ -204,11 +201,17 @@ button {
   }
   .message-header {
     display: flex;
+    align-items: center;
+    h3 {
+      padding-bottom: 0.3rem;
+      font-size: 1rem;
+    }
     p {
       flex: 1;
       text-align: end;
       padding-left: 0.5rem;
       opacity: 0.4;
+      font-size: 0.8rem;
     }
   }
   .messages-animate {
