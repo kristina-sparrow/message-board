@@ -4,10 +4,14 @@ import mongoose from "mongoose";
 import connectDB from "./database/db";
 import cors from "cors";
 import routes from "./routes/routes";
+import path from "path";
 
 const app: express.Express = express();
 
-dotenv.config();
+const findup = require("findup-sync");
+const findEnv = () => findup(".env");
+dotenv.config({ path: findEnv() });
+
 const PORT = process.env.PORT || 3000;
 connectDB();
 
@@ -15,6 +19,7 @@ connectDB();
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "../../client/public")));
 
 // routes
 app.use("/", routes);

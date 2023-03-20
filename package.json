@@ -1,0 +1,14 @@
+{
+  "name": "message-board",
+  "private": "true",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "cd ./server/public && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristina-sparrow/message-board.git"
+  }
+}

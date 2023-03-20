@@ -6,12 +6,11 @@ export type MessageProps = {
 };
 
 export const getMessages = async (since: number) => {
-  console.log(since);
+  const { protocol, hostname } = window.location;
+  const apiURL = `${protocol}//${hostname}:`;
 
   const res = await fetch(
-    `${"http://localhost:"}${process.env.PORT}${
-      since ? `/?since=${since}` : ""
-    }`
+    `${apiURL}${process.env.PORT}${since ? `/?since=${since}` : ""}`
   );
   const data = await res.json();
 
@@ -22,7 +21,10 @@ export const createNewMessage = async (
   data: Omit<MessageProps, "_id" | "added">
 ) => {
   try {
-    const res = await fetch(`http://localhost:${process.env.PORT}`, {
+    const { protocol, hostname } = window.location;
+    const apiURL = `${protocol}//${hostname}:`;
+
+    const res = await fetch(`${apiURL}${process.env.PORT}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

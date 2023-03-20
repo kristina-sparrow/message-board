@@ -30,7 +30,6 @@ export default function SendMessage({ setMessages }: SendMessageProps) {
   ) => {
     await createNewMessage(values)
       .then((res) => {
-        console.log(res);
         setMessages((m) => [...m!, res.messageDB]);
       })
       .catch((err) => console.log(err))
