@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // routes
-app.use("/", routes);
+app.use("/api", routes);
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
   res.sendStatus(404);

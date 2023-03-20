@@ -6,7 +6,7 @@ export type MessageProps = {
 };
 
 export const getMessages = async (since: number) => {
-  const apiURL = "https://messageboard-ks.onrender.com";
+  const apiURL = "https://messageboard-ks.onrender.com/api";
 
   const res = await fetch(`${apiURL}${since ? `/?since=${since}` : ""}`);
   const data = await res.json();
@@ -18,7 +18,7 @@ export const createNewMessage = async (
   data: Omit<MessageProps, "_id" | "added">
 ) => {
   try {
-    const apiURL = "https://messageboard-ks.onrender.com";
+    const apiURL = "https://messageboard-ks.onrender.com/api";
 
     const res = await fetch(apiURL, {
       method: "POST",
