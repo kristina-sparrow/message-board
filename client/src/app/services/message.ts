@@ -6,12 +6,9 @@ export type MessageProps = {
 };
 
 export const getMessages = async (since: number) => {
-  const { protocol, hostname } = window.location;
-  const apiURL = `${protocol}//${hostname}:`;
+  const apiURL = "https://messageboard-ks.onrender.com";
 
-  const res = await fetch(
-    `${apiURL}${process.env.PORT}${since ? `/?since=${since}` : ""}`
-  );
+  const res = await fetch(`${apiURL}${since ? `/?since=${since}` : ""}`);
   const data = await res.json();
 
   return [...data.allMessages.reverse()] as MessageProps[];
@@ -21,10 +18,9 @@ export const createNewMessage = async (
   data: Omit<MessageProps, "_id" | "added">
 ) => {
   try {
-    const { protocol, hostname } = window.location;
-    const apiURL = `${protocol}//${hostname}:`;
+    const apiURL = "https://messageboard-ks.onrender.com";
 
-    const res = await fetch(`${apiURL}${process.env.PORT}`, {
+    const res = await fetch(apiURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

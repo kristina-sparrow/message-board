@@ -5,6 +5,7 @@
     "node": "18.x"
   },
   "scripts": {
+    "build": "cd server && npm i && npm run build && cd ../client && npm i && npm run build",
     "start": "cd ./server/public && node server.js"
   },
   "repository": {

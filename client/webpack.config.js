@@ -1,5 +1,4 @@
 const path = require("path");
-const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -68,10 +67,6 @@ module.exports = {
       favicon: "src/assets/favicon.png",
     }),
     new MiniCssExtractPlugin(),
-    new Dotenv({
-      path: path.resolve(__dirname, "../.env"),
-      safe: true,
-    }),
   ],
   devtool: "eval-source-map",
 };
