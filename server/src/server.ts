@@ -5,6 +5,7 @@ import connectDB from "./config/db";
 import routes from "./routes/routes";
 import cors from "cors";
 import { corsOptions } from "./config/corsOptions";
+import path from "path";
 
 const app: express.Express = express();
 
@@ -19,6 +20,15 @@ connectDB();
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// deployment
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../../client/public")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../../client/public/index.html"));
+  });
+}
 
 // routes
 app.use("/", routes);
